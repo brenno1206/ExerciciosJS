@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculando a média</title>
+    <style>
+        * {
+            text-align: center;
+            padding: 10px;
+            font-size: 40px;
+        }
+        input:not(:last-of-type) {
+            padding: 5px;
+            border: 2px solid black;
+            margin: 4px;
+        }
+        input:last-of-type {
+            background-color: azure;
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>insira suas notas</h3>
+    <label for="nota1">Primeiro bimestre</label> <br>
+    <input type="text" id="nota1"> <br>
+    <label for="nota2">Segundo bimestre</label> <br>
+    <input type="text" id="nota2"> <br>
+    <input type="submit" value="Media" onclick="media()"> <br>
+    <p></p> <br>
+    <button id="clear" onclick="limpar()">Limpar</button>
+    <script>
+        function media() {
+            const body = document.querySelector("body");
+            var nota1 = parseFloat(document.getElementById('nota1').value);
+            var nota2 = parseFloat(document.getElementById('nota2').value);
+
+            if (isNaN(nota1) || isNaN(nota2)) {
+                alert('Insira valores válidos(números)');
+                return;
+            }
+
+            if (nota1 > 10 || nota1 < 0 || nota2 > 10 || nota2 < 0) {
+                alert(`Sua nota deve estar entre 1 e 10`);
+                return;
+            }
+            var media = (nota1 + nota2) / 2;
+            const result = document.querySelector("p");
+            if (media >= 7) {
+                result.innerHTML = [`Sua nota é ${media}, parabéns!`];
+            }
+            else if (media >= 3) {
+                result.innerHTML = [`Sua nota é ${media}, faça a prova final.`];
+            }
+            else {
+                result.innerHTML = [`Sua nota é ${media}, você reprovou.`];
+            }
+            body.appendChild(result);
+            return;
+        }
+        function limpar() {
+            document.getElementById('nota1').value = "";
+            document.getElementById('nota2').value = "";
+            const result = document.querySelector("p");
+            result.innerHTML = "";
+        }
+    </script>
+</body>
+
+</html>

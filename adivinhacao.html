@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Adivinhe o número</title>
+</head>
+<body>
+    <h1>Teste</h1>
+    <button id="chute" onclick="tentativa()"> CHUTE UM NÚMERO</button>
+    <section id="resultado"></section>
+    <script>
+let campo = document.querySelector('section#resultado');
+let correto = Math.floor(Math.random() * 100) + 1;
+
+
+function tentativa() {
+    vez = Number(window.prompt('Qual é o seu palpite?'));
+    if (vez < correto) {
+        campo.innerHTML += `<p>Você falou ${vez}. Meu número é <strong>MAIOR</strong>!</p>`;
+    } else if (vez > correto) {
+        campo.innerHTML += `<p>Você falou ${vez}. Meu número é <strong>MENOR</strong>!</p>`;
+    } else if (vez == correto) {
+        campo.innerHTML += `<p><strong>PARABÉNS!</strong> Você acertou! O valor sorteado era ${correto}!</p>`;
+        document.querySelector("button").style.visibility = 'hidden';
+    }
+}
+    </script>
+</body>
+</html>

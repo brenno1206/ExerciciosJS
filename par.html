@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            text-align: center;
+            padding: 10px;
+            font-size: 40px;
+        }
+        input:not(:last-of-type) {
+            padding: 5px;
+            border: 2px solid black;
+            margin: 4px;
+        }
+        input:last-of-type {
+            background-color: azure;
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+
+<body>
+    <label for="numero1">Insira um número</label> <br>
+    <input type="text" id="numero1"> <br>
+    <label for="numero2">Insira outro número</label> <br>
+    <input type="text" id="numero2"> <br>
+    <input type="submit" name="enviar" id="enviar" onclick="teste()"> <br>
+    <p id="resposta1"></p>
+    <p id="resposta2"></p>
+    <p id="comparar"></p>
+
+    <script>
+        function teste() {
+            var numero1 = parseFloat(document.getElementById('numero1').value);
+            var numero2 = parseFloat(document.getElementById('numero2').value);
+
+            if (isNaN(numero1) || isNaN(numero2)) {
+                alert('Insira valores válidos(números)');
+                return;
+            }
+
+            for (let i = 1; i < 3; i++) {
+                let numero = i === 1 ? numero1 : numero2;
+                if (numero % 2 == 0) {
+                    let duvida = "par";
+                    const resultado = document.querySelector(`p#resposta${i}`);
+                    resultado.innerHTML = `O número ${numero} é ${duvida}`;
+                } else {
+                    let duvida = "ímpar";
+                    const resultado = document.querySelector(`p#resposta${i}`);
+                    resultado.innerHTML = `O número ${numero} é ${duvida}`;
+                }
+            }
+            const compara = document.querySelector("p#comparar");
+            if(numero1 > numero2)
+            {
+                compara.innerHTML = `O número ${numero1} é maior que o ${numero2}`;
+            }
+            else if(numero1 === numero2)
+            {
+                compara.innerHTML = `O número ${numero1} é igual ao ${numero2}`
+            }
+            else 
+            {
+                compara.innerHTML = `O número ${numero2} é maior que o ${numero1}`;
+            }
+        }
+    </script>
+</body>
+
+</html>
