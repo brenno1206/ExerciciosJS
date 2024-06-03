@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            text-align: center;
+            padding: 10px;
+            font-size: 30px;
+        }
+    </style>
+    <title>Fatorial</title>
+</head>
+<body>
+    <label for="fatorial">Insira um número</label>
+    <input type="text" name="fatorial" id="fatorial">
+    <input type="submit" name="enviar" id="enviar" onclick="conta()">
+    <section id="campo"></section>
+
+    <script>
+        function fatorial(numero) {
+            if(numero === 0)
+            {
+                return 1;
+            }
+            else {
+                return numero * fatorial(numero - 1);
+            }
+        }
+
+        function conta() {
+            const sessao = document.querySelector('section#campo');
+            valor = parseFloat(document.getElementById('fatorial').value);
+            if(isNaN(valor))
+            {
+                alert("Insira valores válidos.");
+                return;
+            }
+            let total = fatorial(valor);
+            if(!isFinite(total) || total.toString().includes('e+'))
+            {
+                sessao.innerHTML += `<p> Não foi possível calcular o fatorial de ${valor}. </p>`;
+                return;
+            }
+            sessao.innerHTML += `<p> O fatorial de ${valor} é ${total}. </p>`;
+        }
+    </script>
+</body>
+</html>

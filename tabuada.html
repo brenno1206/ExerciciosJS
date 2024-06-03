@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            text-align: center;
+            padding: 10px;
+            font-size: 30px;
+        }
+    </style>
+    <title>TabuaDA Restrita</title>
+</head>
+
+<body>
+    <label for="numero">Você quer a tabuada de qual número?</label> <br>
+    <input type="text" id="numero"> <br>
+    <label for="inicio">Começando por qual?</label> <br>
+    <input type="text" id="inicio"> <br>
+    <label for="final">Terminando em qual?</label> <br>
+    <input type="text" id="final"> <br>
+    <input type="submit" onclick="tabuada()">
+
+    <section id="campo"></section>
+
+    <script>
+        const campo = document.querySelector('section#campo')
+        function tabuada() {
+            campo.innerHTML = "";
+            const numero = parseFloat(document.getElementById('numero').value);
+            const inicio = parseFloat(document.getElementById('inicio').value);
+            const fim = parseFloat(document.getElementById('final').value);
+
+            if (isNaN(numero) || isNaN(inicio) || isNaN(fim)) {
+                alert("insira valores válidos");
+                return;
+            }
+            if(fim < inicio) {
+                alert("o inicio deve ser menor que o fim");
+                return;
+            }
+            for (let i = inicio; i <= fim; i++) {
+                campo.innerHTML += `<p>${numero} X ${i} = <strong>${numero * i}</strong></p>`
+            }
+        }
+    </script>
+</body>
+
+</html>

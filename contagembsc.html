@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+         * {
+            text-align: center;
+            padding: 10px;
+            font-size: 30px;
+        }
+    </style>
+    <title>Contagens básicas</title>
+</head>
+<body>
+    <button onclick="tudo()">Clique em mim!!</button>
+
+    <section id="campo"></section>
+
+    <script>
+        const campo = document.querySelector('section#campo');
+        function crescente(){
+            for(let i = 1; i < 11; i ++) {
+                campo.innerHTML += ` ${i} `;
+            }
+            campo.innerHTML += '<br>';
+        }
+        function descrescente() {
+            for(let i = 10; i > 0; i --) {
+                campo.innerHTML += ` ${i} `;
+            }
+            campo.innerHTML += '<br>';
+        }
+        function par1() {
+            for(let i = 1; i < 11; i ++) {
+                if(i % 2 === 0) {
+                    campo.innerHTML += ` <strong>${i}</strong> `;
+                }
+                else {
+                    campo.innerHTML += ` ${i} `;
+                }
+            }
+            campo.innerHTML += '<br>';
+        }
+
+        function par2() {
+            for(let i = 1; i < 11; i ++) {
+                if(i % 2 === 0) {
+                    campo.innerHTML += ` ${i} `;
+                }
+            }
+            campo.innerHTML += '<br>';
+        }
+
+        function tudo() {
+            campo.innerHTML = "";
+            crescente();
+            descrescente();
+            par1();
+            par2();
+        }
+    </script>
+</body>
+</html>
