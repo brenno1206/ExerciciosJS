@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversão Binária</title>
+    <style>
+        * {
+            text-align: center;
+            padding: 10px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <label for="">Digite o número a ser convertido</label> <br>
+    <input type="text" id="area">
+    <input type="submit" onclick="binario()">
+    <section id="campo"></section>
+
+    <script>
+        function binario() {
+            const campo = document.querySelector('section#campo');
+            let numero = parseInt(document.querySelector('input#area').value);
+            let mostrar = numero;
+            let bin = [];
+            for (let i = 0; numero != 0; i++) {
+                bin[i] = numero % 2;
+                numero = Math.floor(numero / 2);
+            }
+            bin.reverse();
+
+            campo.innerHTML += `<p>O número decimal ${mostrar} em binário é ${bin.join('')}</p>`;
+        }
+    </script>
+</body>
+
+</html>

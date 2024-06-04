@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palíndromo</title>
+    <style>
+        * {
+            text-align: center;
+            padding: 10px;
+            font-size: 30px;
+            margin: 5px;
+        }
+
+        input {
+            border-style: solid;
+        }
+    </style>
+</head>
+
+<body>
+    <label for="text">Digite uma palavra para
+        verificar se ela é um palíndromo</label> <br>
+    <input type="text">
+    <button onclick="verificar()">Enviar</button>
+    <section id="campo"></section>
+
+    <script>
+        function verificar() {
+            const campo = document.querySelector('section#campo');
+            const palavra = document.querySelector('body > input[type="text"]').value.trim().toLowerCase();
+            const palavra2 = palavra.split('').reverse().join('')
+
+            if (palavra.localeCompare(palavra2) === 0) {
+                campo.innerHTML += `<p>A palavra ${palavra} é um palíndromo</p>`
+            }
+            else {
+                campo.innerHTML += `<p>A palavra ${palavra} não é um palíndromo</p>`
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -29,9 +29,9 @@
         const campo = document.querySelector('section#campo')
         function tabuada() {
             campo.innerHTML = "";
-            const numero = parseFloat(document.getElementById('numero').value);
-            const inicio = parseFloat(document.getElementById('inicio').value);
-            const fim = parseFloat(document.getElementById('final').value);
+            const numero = parseInt(document.getElementById('numero').value);
+            const inicio = parseInt(document.getElementById('inicio').value);
+            const fim = parseInt(document.getElementById('final').value);
 
             if (isNaN(numero) || isNaN(inicio) || isNaN(fim)) {
                 alert("insira valores válidos");

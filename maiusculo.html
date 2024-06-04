@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAIÚSCULAS/minúsculas</title>
+    <style>
+        * {
+            text-align: center;
+            padding: 10px;
+            font-size: 30px;
+            margin: 5px;
+        }
+        input {
+            border-style: solid;
+        }
+    </style>
+</head>
+<body>
+    <input id="material"></input> <br>
+
+    <button id="p1" onclick="normal()">Normal</button>
+    <button id="p2" onclick="maiusculo()">MAIÚSCULO</button>
+    <button id="p3" onclick="minusculo()">minúsculo</button>
+    <section id="campo"></section>
+
+    <script>
+        const campo = document.querySelector('section#campo');
+
+        function maiusculo() {
+            var frase = document.querySelector('input#material').value;
+            campo.innerHTML = `<p>${frase.toUpperCase()}</p>`;
+        }
+        function minusculo() {
+            var frase = document.querySelector('input#material').value;
+            campo.innerHTML = `<p>${frase.toLowerCase()}</p>`;
+        }
+
+        function normal() {
+            var frase = document.querySelector('input#material').value;
+            let tamanho = frase.length;
+            let string = '';
+
+            for(let i = 0; i < tamanho; i++) {
+                if(i === 0 || frase[i - 2] == "." ) {
+                    string += frase[i].toUpperCase();
+                }
+                else {
+                    string += frase[i].toLowerCase();
+                }
+            }
+
+            campo.innerHTML = `<p>${string}</p>`
+        }
+    </script>
+</body>
+</html>
