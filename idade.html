@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idade</title>
+</head>
+<body>
+    <button onclick="idade()">Clique aqui</button>
+    <section id="campo"></section>
+    <script>
+        function idade() {
+            const campo = document.querySelector('section#campo');
+            const data_usu = new Date(prompt("Digite sua tada de nascimento, em MM/DD/YY"));
+            const hoje = new Date();
+            let dia1 = data_usu.getDate();
+            let dia2 = hoje.getDate();
+            let mes1 = data_usu.getMonth();
+            let mes2 = hoje.getMonth();
+            let ano1 = data_usu.getFullYear();
+            let ano2 = hoje.getFullYear();
+
+            let resultado = ano2 - ano1;
+
+            if( mes2 < mes1 || (dia2 < dia1 && mes1 === mes2 ) ) {
+                resultado--;
+            }
+            
+            campo.innerHTML += `<p>Sua idade é ${resultado}</p>`;
+        }
+    </script>
+</body>
+</html>
