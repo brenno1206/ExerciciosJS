@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qual o * número primo?</title>
+</head>
+
+<body>
+    <h3>Qual o * número primo?</h3>
+    <label for="numero">Digite qual a posição do número primo que você quer</label> <br>
+    <input type="text" name="numero" id="numero">
+    <input type="submit" onclick="primo()">
+    <section id="campo"></section>
+
+    <script>
+        const campo = document.querySelector('section#campo');
+        function primo() {
+            let numero_usuario = parseInt(document.querySelector('input#numero').value);
+
+
+            let numero_primo = 1;
+            for (let numero_geral = 2; true; numero_geral++) {
+                if (numero_usuario == 1) {
+                    var resultado = 2;
+                    break;
+                }
+                for (let contador = 2; contador < numero_geral; contador++) {
+                    let resto = numero_geral % contador;
+                    if (resto == 0) {
+                        break;
+                    }
+                    if (resto != 0 && contador == numero_geral - 1) {
+                        numero_primo++;
+                    }
+                }
+                if (numero_primo === numero_usuario) {
+                    var resultado = numero_geral;
+                    break;
+                }
+            }
+            campo.innerHTML += `<p>O número na posição ${numero_usuario} é ${resultado} </p>`
+        }
+    </script>
+</body>
+
+</html>
